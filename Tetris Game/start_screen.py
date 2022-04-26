@@ -1,5 +1,5 @@
 '''Importing Libraries'''
-import pygame,time, sys
+import pygame, sys
 from pygame.locals import *
 
 pygame.init()
@@ -25,8 +25,8 @@ displayHeight = 700
 white =    (255,255,255)   # Font Colour
 blueGrey = ( 36, 63, 93)   # Background colour
 #Loading images
-tetrisImg = pygame.image.load('images/tetris-logo.png')        # The Tetris logo
-titleBar = pygame.image.load('images/bar 360 by 100.png')      # The Title bar
+tetrisImg = pygame.image.load("images/tetris-logo.png")        # The Tetris logo
+titleBar = pygame.image.load("images/bar 360 by 100.png")      # The Title bar
 
 #function for if the cross button on the window is clicked
 def checkForQuit():

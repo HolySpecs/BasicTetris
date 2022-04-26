@@ -343,7 +343,7 @@ def update_score(database,name, nscore):
 def max_score():
     score = 0
     name = ''
-    datbase = [[name, score]]
+    database = [[name, score]]
     try:
         with open('infinite.csv', 'r') as file:
             #database = [[name, score]]
@@ -353,7 +353,7 @@ def max_score():
                     score = int(database[i][1])
                     name = database[i][0]
     except:
-        f = open('sprint.csv','x')
+        f = open('infinite.csv','x')
         f.close()
     return database,name, score
 
