@@ -34,7 +34,7 @@ yellow =    (255, 255,   0)
 blueGrey =  ( 36,  63,  93)
 
 #Font to be used
-font = 'Calibri.ttf'
+font = 'Tetris Game/Calibri.ttf'
 
 #Frames per second allowed
 clock = pygame.time.Clock()
@@ -43,9 +43,9 @@ FPS = 60
 #The Main Menu Function
 def main_menu():
     #Sound Effects
-    menuMusic = 'audio files/Music/Menu Music.ogg'
-    menuNav = 'audio files/Sound Effects/Menu Nav.ogg'
-    menuSelect = 'audio files/Sound Effects/Menu Select.ogg'
+    menuMusic = 'Tetris Game/audio files/Music/Menu Music.ogg'
+    menuNav = 'Tetris Game/audio files/Sound Effects/Menu Nav.ogg'
+    menuSelect = 'Tetris Game/audio files/Sound Effects/Menu Select.ogg'
     menu = True
     #Default option
     selected = 1
