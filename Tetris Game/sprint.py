@@ -1,4 +1,5 @@
 import pygame, time, math
+import main_menu
 
 from infinite import *
 
@@ -107,6 +108,57 @@ def shortest_time():
         lines = f.readlines()
         time_taken = lines[0].strip()
     return time_taken
+
+#The Pause Function itself, taking the pause state and the text it needs to display
+def pause_func(text, pause_state, controller_state, win):
+    while pause_state == True:
+        # Font to use in the screen
+        font = pygame.font.SysFont('calibri', 50)
+        # Draw the text
+        titleSurf, titleRect = makeTextObjs(text, font, (255,255,255))
+        titleRect.center = (int(s_width / 2) - 3, int(s_height / 2) - 3)
+        win.blit(titleSurf, titleRect)
+        # Draw the additional "Press a key to play." text.
+        pressKeySurf, pressKeyRect = makeTextObjs('Press any key or button to continue.', font, (255,255,255))
+        pressKeyRect.center = (int(s_width / 2), int(s_height / 2) + 100)
+        win.blit(pressKeySurf, pressKeyRect)
+        # Checks if a key was pressed
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                pygame.mixer.quit()
+                pygame.display.quit()
+            if event.type == pygame.KEYDOWN:
+                #restart the game
+                if event.key == pygame.K_r:
+                    sprint(win)
+                #back to main Menu
+                elif event.key == pygame.K_b:
+                    main_menu.main_menu()
+                else:
+                    pause_state = False
+            #First checks if the controller is connected
+            if controller_state == True:
+                if event.type == pygame.JOYBUTTONDOWN:
+                    pause_state = False
+        #Will enter this section to update screen if controller is connected
+        if controller_state == True:
+            while (checkForButtonPress() == None):
+                pygame.display.update()
+                clock = pygame.time.Clock()
+                clock.tick(60)
+                # Testing purposes
+                break
+        #No controller
+        elif controller_state == False:
+            #Updates the screen whilst no other key was pressed
+            while (checkForKeyPress() == None) :
+                pygame.display.update()
+                clock = pygame.time.Clock()
+                clock.tick(60)
+                # Testing purposes
+                break
+
 
 def sprint(win):
     ''' Audio Files '''
@@ -266,7 +318,7 @@ def sprint(win):
                     pause = True
                     # Pauses the bgm
                     channel1.pause()
-                    pause_func('Paused', pause, controller)
+                    pause_func('Paused', pause, controller, win)
                     buffer = True
                     # Resumes the bgm
                     channel1.unpause()
@@ -338,7 +390,7 @@ def sprint(win):
                         fall_speed = math.inf
                         pause = True
                         channel1.pause()
-                        pause_func('Paused', pause, controller)
+                        pause_func('Paused', pause, controller, win)
                         buffer = True
                         channel1.unpause()
                         # Reloads the Position and fall speed back after pause
@@ -457,3 +509,4 @@ def sprint(win):
             run = False  # Stops game
             update_times(database, name, milliseconds)  # Updates the score if higher or not
             pygame.mixer.quit()
+    main_menu.main_menu()

@@ -1,5 +1,6 @@
 ''' Importing Libraries '''
-import pygame, random, time, math, sys
+from tkinter import Menu
+import pygame, random, time, math, sys, main_menu
 from csv import reader, writer
 
 ''' Starting Modules '''
@@ -458,7 +459,7 @@ def checkForButtonPress():
         pass
 
 #The Pause Function itself, taking the pause state and the text it needs to display
-def pause_func(text, pause_state, controller_state):
+def pause_func(text, pause_state, controller_state, win):
     while pause_state == True:
         # Font to use in the screen
         font = pygame.font.SysFont('calibri', 50)
@@ -477,7 +478,14 @@ def pause_func(text, pause_state, controller_state):
                 pygame.mixer.quit()
                 pygame.display.quit()
             if event.type == pygame.KEYDOWN:
-                pause_state = False
+                #restart the game
+                if event.key == pygame.K_r:
+                    infinite(win)
+                #back to main Menu
+                elif event.key == pygame.K_b:
+                    main_menu.main_menu()
+                else:
+                    pause_state = False
             #First checks if the controller is connected
             if controller_state == True:
                 if event.type == pygame.JOYBUTTONDOWN:
@@ -711,7 +719,7 @@ def infinite(win):
                     pause = True
                     #Pauses the bgm
                     channel1.pause()
-                    pause_func('Paused', pause, controller)
+                    pause_func('Paused', pause, controller, win)
                     buffer = True
                     #Resumes the bgm
                     channel1.unpause()
@@ -783,7 +791,7 @@ def infinite(win):
                         fall_speed = math.inf
                         pause = True
                         channel1.pause()
-                        pause_func('Paused', pause, controller)
+                        pause_func('Paused', pause, controller, win)
                         buffer = True
                         channel1.unpause()
                         #Reloads the Position and fall speed back after pause
@@ -899,3 +907,4 @@ def infinite(win):
             run = False                                             #Stops game
             update_score(database,name,score)                                     #Updates the score if higher or not
             pygame.mixer.quit()
+    main_menu.main_menu()
