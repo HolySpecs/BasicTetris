@@ -39,8 +39,8 @@ def leaderboard(window):
     #add headers to the tables
     scores.insert(0,["Name", "Score"])
     times.insert(0, ["Name", "Time"])
-    menuNav = 'audio files/Sound Effects/Menu Nav.ogg'
-    menuSelect = 'audio files/Sound Effects/Menu Select.ogg'
+    menuNav = 'Tetris Game/audio files/Sound Effects/Menu Nav.ogg'
+    menuSelect = 'Tetris Game/audio files/Sound Effects/Menu Select.ogg'
     channel2 = pygame.mixer.Channel(1)
     #format the times in the times database
     for i in range(1, len(times)):
@@ -90,16 +90,16 @@ def leaderboard(window):
         else:
             temp = times
 
-        buttonB = text_format('O or Right Shift - Back', 'Calibri.ttf', 40, white)
+        buttonB = text_format('O or Right Shift - Back', 'Tetris Game/Calibri.ttf', 40, white)
         #header initial positions
         names_x = 50
         headers_x = 300
         headers_y = 50
 
         for i in range(0, len(temp)):
-            name = text_format(temp[i][0], 'Calibri.ttf', 40, white)
-            value = text_format(temp[i][1], 'Calibri.ttf', 40, white)
-            ranking = text_format(str(i), 'Calibri.ttf', 40, white)
+            name = text_format(temp[i][0], 'Tetris Game/Calibri.ttf', 40, white)
+            value = text_format(temp[i][1], 'Tetris Game/Calibri.ttf', 40, white)
+            ranking = text_format(str(i), 'Tetris Game/Calibri.ttf', 40, white)
             names_rect = name.get_rect()
             values_rect = value.get_rect()
             window.blit(name , (names_x, headers_y))
