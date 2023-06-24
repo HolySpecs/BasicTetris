@@ -8,6 +8,8 @@ from pygame.locals import *
 #Importing from the other python files
 from start_screen import *
 from main_menu import *
+from pathlib import Path
+
 
 #System setup
 fps = 60           #Framerate of game

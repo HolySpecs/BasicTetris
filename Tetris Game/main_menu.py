@@ -6,6 +6,8 @@ from start_screen import *
 from infinite import *
 from sprint import *
 from leaderboard import *
+from pathlib import Path
+
 
 #Starting the Pygame module
 pygame.init()
@@ -34,7 +36,7 @@ yellow =    (255, 255,   0)
 blueGrey =  ( 36,  63,  93)
 
 #Font to be used
-font = 'Tetris Game/Calibri.ttf'
+font = 'Calibri.ttf'
 
 #Frames per second allowed
 clock = pygame.time.Clock()
@@ -43,9 +45,9 @@ FPS = 60
 #The Main Menu Function
 def main_menu():
     #Sound Effects
-    menuMusic = 'Tetris Game/audio files/Music/Menu Music.ogg'
-    menuNav = 'Tetris Game/audio files/Sound Effects/Menu Nav.ogg'
-    menuSelect = 'Tetris Game/audio files/Sound Effects/Menu Select.ogg'
+    menuMusic = 'audio files/Music/Menu Music.ogg'
+    menuNav = 'audio files/Sound Effects/Menu Nav.ogg'
+    menuSelect = 'audio files/Sound Effects/Menu Select.ogg'
     menu = True
     #Default option
     selected = 1

@@ -2,6 +2,8 @@
 from tkinter import Menu
 import pygame, random, time, math, sys, main_menu
 from csv import reader, writer
+from pathlib import Path
+
 
 ''' Starting Modules '''
 pygame.init()
@@ -549,15 +551,15 @@ def enter_name(window):
 def infinite(win):
     ''' Audio Files '''
     #BGM
-    startMusic = 'Tetris Game/audio files/Music/game-start1.ogg'                #Music between levels 1 - 4 (theme = 0)
-    midMusic = 'Tetris Game/audio files/Music/game-mid1.ogg'                    #Music between levels 5 - 9 (theme = 1)
-    finalMusic = 'Tetris Game/audio files/Music/game-last1.ogg'                 #Music between levels 10 and up (theme = 2)
+    startMusic = 'audio files/Music/game-start1.ogg'                #Music between levels 1 - 4 (theme = 0)
+    midMusic = 'audio files/Music/game-mid1.ogg'                    #Music between levels 5 - 9 (theme = 1)
+    finalMusic = 'audio files/Music/game-last1.ogg'                 #Music between levels 10 and up (theme = 2)
     #Sound effects
-    lineClear = 'Tetris Game/audio files/Sound Effects/Line Clear.ogg'          #Effect when line is cleared
-    tetrisClear = 'Tetris Game/audio files/Sound Effects/Tetris Clear.ogg'      #Effect when 4 lines are cleared
-    levelClear = 'Tetris Game/audio files/Sound Effects/Level Up.ogg'           #Effect when player goes up a level
-    hardDrop = 'Tetris Game/audio files/Sound Effects/Hard Drop.ogg'            #Effect when hard drop is performed
-    gameOver = 'Tetris Game/audio files/Sound Effects/game-over.ogg'            #Effect when the game over condition is met
+    lineClear = 'audio files/Sound Effects/Line Clear.ogg'          #Effect when line is cleared
+    tetrisClear = 'audio files/Sound Effects/Tetris Clear.ogg'      #Effect when 4 lines are cleared
+    levelClear = 'audio files/Sound Effects/Level Up.ogg'           #Effect when player goes up a level
+    hardDrop = 'audio files/Sound Effects/Hard Drop.ogg'            #Effect when hard drop is performed
+    gameOver = 'audio files/Sound Effects/game-over.ogg'            #Effect when the game over condition is met
     #For new algorithm
     shapes = [S, Z, I, O, J, L, T]
     holder = None

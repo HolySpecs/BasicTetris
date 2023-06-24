@@ -1,6 +1,8 @@
 '''Importing Libraries'''
 import pygame, sys
 from pygame.locals import *
+from pathlib import Path
+
 
 pygame.init()
 
@@ -25,8 +27,8 @@ displayHeight = 700
 white =    (255,255,255)   # Font Colour
 blueGrey = ( 36, 63, 93)   # Background colour
 #Loading images
-tetrisImg = pygame.image.load("Tetris Game/images/tetris-logo.png")        # The Tetris logo
-titleBar = pygame.image.load("Tetris Game/images/bar 360 by 100.png")      # The Title bar
+tetrisImg = pygame.image.load("images/tetris-logo.png")        # The Tetris logo
+titleBar = pygame.image.load("images/bar 360 by 100.png")      # The Title bar
 
 #function for if the cross button on the window is clicked
 def checkForQuit():
@@ -56,7 +58,7 @@ clock = pygame.time.Clock()
 def game_intro():
     pygame.mixer.quit() #Ending previous Audio in prevous tracks
     pygame.mixer.init() #Starting Music Service
-    pygame.mixer.music.load('Tetris Game/audio files/Music/tetris theme remix.ogg') #Start Theme
+    pygame.mixer.music.load('audio files/Music/tetris theme remix.ogg') #Start Theme
     pygame.mixer.music.play(-1, 0.0) #Play Infinitely
     intro = True
     while intro == True:
@@ -86,7 +88,7 @@ def game_intro():
                 if event.key == pygame.K_RETURN:
                     #Loading and playing the menu select effect
                     pygame.mixer.init()
-                    pygame.mixer.music.load('Tetris Game/audio files/Sound Effects/Menu Select.ogg')
+                    pygame.mixer.music.load('audio files/Sound Effects/Menu Select.ogg')
                     pygame.mixer.music.play(1)
                     intro = False
             if controller == True:
@@ -94,7 +96,7 @@ def game_intro():
                     if j.get_button(9):
                         pygame.mixer.init() #Starting the music service
                         #Playing the specific file
-                        pygame.mixer.music.load('Tetris Game/audio files/Sound Effects/Menu Select.ogg')
+                        pygame.mixer.music.load('audio files/Sound Effects/Menu Select.ogg')
                         #Letting it be played once
                         pygame.mixer.music.play(1)
                         #Exiting the start screen loop
